@@ -71,6 +71,11 @@ public class IntVector {
         return sb.toString();
     }
 
+    /**
+     * 当数组容器不够时，扩容。
+     * 扩容的逻辑是，先创建一个2倍大小的数组，把原数组内容复制到新数组，再用新数组替换掉旧数组。
+     * 解释一下，内存的使用方式就是这样的，需要更多内存时，需要显式申请（这里的方式是new一个更大的数组）。
+     */
     private void grow() {
         if(size<container.length)
             return;
