@@ -35,7 +35,11 @@ public class CircularArray {
     public void addFirst(int elem) {
         if(size==capacity)
             grow();
-        head = (head-1+capacity)%capacity;
+
+        if(size==0)
+            head = tail = 0;
+        else
+            head = (head-1+capacity)%capacity;
         data[head] = elem;
         size++;
     }
@@ -78,7 +82,11 @@ public class CircularArray {
     public void addLast(int elem) {
         if(size==capacity)
             grow();
-        tail = (tail + 1)%capacity;
+        if(size==0)
+            head = tail = 0;
+        else
+            tail = (tail + 1)%capacity;
+
         size++;
         data[tail] = elem;
     }
